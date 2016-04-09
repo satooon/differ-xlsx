@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/tealeg/xlsx"
-)
+import "github.com/tealeg/xlsx"
 
 type xlsxFile struct {
 	xlsx.File
@@ -31,11 +27,7 @@ func (xlsx *xlsxFile) OutPutSheet(sheetName string) [][]string {
 		}
 		r := []string{}
 		for _, cell := range row.Cells {
-			str, err := cell.String()
-			if err != nil {
-				panic(fmt.Sprintf("%v cell to string error. err:%v", xlsx.FilePath, err))
-			}
-			r = append(r, str)
+			r = append(r, cell.Value)
 		}
 		output = append(output, r)
 	}

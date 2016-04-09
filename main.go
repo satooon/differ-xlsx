@@ -37,7 +37,7 @@ func Action(ctx *cli.Context) {
 	debugLog = debugLogStruct{verbose: verbose}
 	args := ctx.Args()
 
-	if len(args) != 2 {
+	if len(args) < 2 {
 		panic("please select 2 files")
 	}
 
